@@ -1,0 +1,297 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "CorporateTreasury_IDExist",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "CorporateTreasury_InvalidAmount",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "CorporateTreasury_InvstNotExist",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "CorporateTreasury_NotAutorized",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "CorporateTreasury_SelectContinent",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "investor",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "assetName",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "principal",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum corporateTreasury.Continent",
+						"name": "continent",
+						"type": "uint8"
+					}
+				],
+				"name": "InvestmentRecorded",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_assetName",
+						"type": "string"
+					},
+					{
+						"internalType": "enum corporateTreasury.Continent",
+						"name": "_continent",
+						"type": "uint8"
+					},
+					{
+						"internalType": "enum corporateTreasury.AssetClass",
+						"name": "_assetClass",
+						"type": "uint8"
+					}
+				],
+				"name": "addInvestment",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "calculateYield",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "accruedYield",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "getDaysUnderManagement",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "daysUnderMgmt",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "getInvestmentSummary",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "investor",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "principal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum corporateTreasury.Continent",
+						"name": "continent",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "idUsed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "ledger",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "investor",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "assetName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "principal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum corporateTreasury.Continent",
+						"name": "continent",
+						"type": "uint8"
+					},
+					{
+						"internalType": "enum corporateTreasury.AssetClass",
+						"name": "assetClass",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalInvestmentsCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"CorporateTreasury.sol": "corporateTreasury"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"CorporateTreasury.sol": {
+			"keccak256": "0xbc7ecb74997d3e0d9af1080756d205e9c13d722f9e73d0b60839ec8a33895966",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://71bf7ef4fbfc205682abd29b7d287fa5b4563a3c574ed5b1ff5dad86381bf3af",
+				"dweb:/ipfs/QmQkzKcG2mSYigpWM2APpKCmTWfF2Udoc246QKLPTXuXWJ"
+			]
+		}
+	},
+	"version": 1
+}
