@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"EventTicketingPlatform.sol": "EventTicketingPlatform"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"EventTicketingPlatform.sol": {
+			"keccak256": "0xb0d267fb49228d320e4f0807670792df03b423bfae7b5b5024bc9e016ca630bd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://002bda03b5f7c6d94b66f5e19fdff2dc80fd28857f75aed7bf59825766a881c3",
+				"dweb:/ipfs/QmUhye3hCqEWkNfPSdyBT8FHUyxszfP6fQXmYJiB4Mpy6Z"
+			]
+		}
+	},
+	"version": 1
+}
