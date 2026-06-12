@@ -4,7 +4,207 @@
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [],
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "EventTicketingPlatform_InvalidAmount",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "EventTicketingPlatform_InvalidEventDate",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "EventTicketingPlatform_SelectEventType",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "EventTicketingPlatform_TicketDoesNotExist",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "EventTicketingPlatform_TicketExists",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "ticketId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "eventName",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountPaid",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum EventTicketingPlatform.EventType",
+						"name": "eventType",
+						"type": "uint8"
+					}
+				],
+				"name": "TicketPurchased",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_ticketId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_eventName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_eventTimestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum EventTicketingPlatform.EventType",
+						"name": "_eventType",
+						"type": "uint8"
+					},
+					{
+						"internalType": "enum EventTicketingPlatform.TicketTier",
+						"name": "_ticketTier",
+						"type": "uint8"
+					}
+				],
+				"name": "purchaseTicket",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "tickets",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "ticketId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "eventName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "purchaseAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "purchaseTimestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "eventTimestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum EventTicketingPlatform.EventType",
+						"name": "eventType",
+						"type": "uint8"
+					},
+					{
+						"internalType": "enum EventTicketingPlatform.TicketTier",
+						"name": "ticketTier",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "ticketsUsed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalTicketSold",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -33,11 +233,11 @@
 	},
 	"sources": {
 		"EventTicketingPlatform.sol": {
-			"keccak256": "0xb0d267fb49228d320e4f0807670792df03b423bfae7b5b5024bc9e016ca630bd",
+			"keccak256": "0x45e1df1c9629f6e09a248278897de92759cc140a8a3208eb7a3d83d5faf53e96",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://002bda03b5f7c6d94b66f5e19fdff2dc80fd28857f75aed7bf59825766a881c3",
-				"dweb:/ipfs/QmUhye3hCqEWkNfPSdyBT8FHUyxszfP6fQXmYJiB4Mpy6Z"
+				"bzz-raw://1ed009c65c65198e3861bf77dfa43f82683de99b656a9ea428fc17b1bbd6f53b",
+				"dweb:/ipfs/QmWz9yPHz1kDe9KP4PoWkqMViR5s3f8QEuhHyxsNGs78TS"
 			]
 		}
 	},
