@@ -58,6 +58,12 @@ contract EventTicketingPlatform {
     error EventTicketingPlatform_TicketExists();
     error EventTicketingPlatform_TicketDoesNotExist();
 
+    function _ticketDoesNotExist(uint256 _ticketId) view private {
+        if(!ticketsUsed[_ticketId]) {
+            revert EventTicketingPlatform_TicketDoesNotExist();
+        }
+    } 
+
     function purchaseTicket(
         uint256 _ticketId,
         string memory _eventName,
@@ -94,16 +100,42 @@ contract EventTicketingPlatform {
 
         emit TicketPurchased(_ticketId, msg.sender, _eventName, msg.value, _eventType);
     }
-    
+
         function getDaysUntilEvent(uint256 _ticketId) public view returns(uint256 daysRemaining) {
-        if(!ticketsUsed[_ticketId]) {
-            revert EventTicketingPlatform_TicketDoesNotExist();
-        }
+        _ticketDoesNotExist(_ticketId);
         if (block.timestamp >= tickets[_ticketId].eventTimestamp) {
             return 0;
         }
 
         return (tickets[_ticketId].eventTimestamp - block.timestamp) / 1 days;
         
+    }
+
+    function _getRefundPercentage(uint256 _remainingDays) pure private returns(uint256 refundPercentage) {
+        if(_remainingDays >= 30) {
+            return 80;
+        } else if(_remainingDays >= 15 && _remainingDays < 30) {
+            return 50;
+        } else if(_remainingDays >= 7 && _remainingDays < 15) {
+            return 25;
+        } else {
+            return 0;
+        }
+    }
+
+    function calculateRefundAmount(uint256 _ticketId) public view returns(uint256 refundAmount){
+        _ticketDoesNotExist(_ticketId);
+        uint256 remainingDays = getDaysUntilEvent(_ticketId);
+        uint256 refundPercentage = _getRefundPercentage(remainingDays);
+        refundAmount = (tickets[_ticketId].purchaseAmount * refundPercentage / 100);
+        return refundAmount;
+    }
+
+    function getTicketSummary(uint256 _ticketId) external view returns(address buyer, uint256 purchaseAmount, TicketTier tier) {
+        _ticketDoesNotExist(_ticketId);
+        buyer = tickets[_ticketId].buyer;
+        purchaseAmount = tickets[_ticketId].purchaseAmount;
+        tier = tickets[_ticketId].ticketTier;
+        return (buyer, purchaseAmount, tier);
     }
 }
