@@ -94,5 +94,16 @@ contract EventTicketingPlatform {
 
         emit TicketPurchased(_ticketId, msg.sender, _eventName, msg.value, _eventType);
     }
+    
+        function getDaysUntilEvent(uint256 _ticketId) public view returns(uint256 daysRemaining) {
+        if(!ticketsUsed[_ticketId]) {
+            revert EventTicketingPlatform_TicketDoesNotExist();
+        }
+        if (block.timestamp >= tickets[_ticketId].eventTimestamp) {
+            return 0;
+        }
 
+        return (tickets[_ticketId].eventTimestamp - block.timestamp) / 1 days;
+        
+    }
 }
